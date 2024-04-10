@@ -11,34 +11,34 @@
 
 	<ItemGroup>
 		<VisualStudioVersionModern Include="2022">
-			<SolutionFile>$(MSBuildThisFileDirectory)..\Renci.SshNet.sln</SolutionFile>
+			<SolutionFile>$(MSBuildThisFileDirectory)..\Renci.OS.SshNet.sln</SolutionFile>
 			<VisualStudioVersion>17.0</VisualStudioVersion>
 		</VisualStudioVersionModern>
 	</ItemGroup>
 
 	<ItemGroup>
 		<TargetFrameworkModern Include=".NET Framework 4.6.2">
-			<OutputDirectory>Renci.SshNet\bin\$(Configuration)\net462</OutputDirectory>
+			<OutputDirectory>Renci.OS.SshNet\bin\$(Configuration)\net462</OutputDirectory>
 			<Moniker>net462</Moniker>
 		</TargetFrameworkModern>
 		<TargetFrameworkModern Include=".NETStandard 2.0">
-			<OutputDirectory>Renci.SshNet\bin\$(Configuration)\netstandard2.0</OutputDirectory>
+			<OutputDirectory>Renci.OS.SshNet\bin\$(Configuration)\netstandard2.0</OutputDirectory>
 			<Moniker>netstandard2.0</Moniker>
 		</TargetFrameworkModern>
 		<TargetFrameworkModern Include=".NETStandard 2.1">
-			<OutputDirectory>Renci.SshNet\bin\$(Configuration)\netstandard2.1</OutputDirectory>
+			<OutputDirectory>Renci.OS.SshNet\bin\$(Configuration)\netstandard2.1</OutputDirectory>
 			<Moniker>netstandard2.1</Moniker>
 		</TargetFrameworkModern>
 		<TargetFrameworkModern Include=".NET 6.0">
-			<OutputDirectory>Renci.SshNet\bin\$(Configuration)\net6.0</OutputDirectory>
+			<OutputDirectory>Renci.OS.SshNet\bin\$(Configuration)\net6.0</OutputDirectory>
 			<Moniker>net6.0</Moniker>
 		</TargetFrameworkModern>
 		<TargetFrameworkModern Include=".NET 7.0">
-			<OutputDirectory>Renci.SshNet\bin\$(Configuration)\net7.0</OutputDirectory>
+			<OutputDirectory>Renci.OS.SshNet\bin\$(Configuration)\net7.0</OutputDirectory>
 			<Moniker>net7.0</Moniker>
 		</TargetFrameworkModern>
 		<TargetFrameworkModern Include=".NET 8.0">
-			<OutputDirectory>Renci.SshNet\bin\$(Configuration)\net8.0</OutputDirectory>
+			<OutputDirectory>Renci.OS.SshNet\bin\$(Configuration)\net8.0</OutputDirectory>
 			<Moniker>net8.0</Moniker>
 		</TargetFrameworkModern>
 	</ItemGroup>
@@ -78,12 +78,12 @@
 	<Target Name="ValidatePackage" DependsOnTargets="ValidatePackageModern"/>
 
 	<Target Name="ValidatePackageModern" DependsOnTargets="CheckNuGetPackageDirectory" Outputs="%(TargetFrameworkModern.Identity)">
-		<Error Text="The 'Renci.SshNet.dll' file is not available for %(TargetFrameworkModern.Identity) in $(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)." Condition="!Exists('$(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)\Renci.SshNet.dll')"/>
-		<Error Text="The 'Renci.SshNet.xml' file is not available for %(TargetFrameworkModern.Identity) in $(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)." Condition="!Exists('$(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)\Renci.SshNet.xml')"/>
+		<Error Text="The 'Renci.OS.SshNet.dll' file is not available for %(TargetFrameworkModern.Identity) in $(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)." Condition="!Exists('$(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)\Renci.OS.SshNet.dll')"/>
+		<Error Text="The 'Renci.OS.SshNet.xml' file is not available for %(TargetFrameworkModern.Identity) in $(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)." Condition="!Exists('$(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)\Renci.OS.SshNet.xml')"/>
 	</Target>
 	
 	<Target Name="CreateNuGetPackage" DependsOnTargets="ValidatePackage;CheckNuGetPackageDirectory;CheckReleaseVersion">
-		<Exec Command="dotnet pack $(MSBuildThisFileDirectory)..\src\Renci.SshNet\Renci.SshNet.csproj --no-build --output &quot;$(MSBuildThisFileDirectory)target&quot;"/>
+		<Exec Command="dotnet pack $(MSBuildThisFileDirectory)..\src\Renci.OS.SshNet\Renci.OS.SshNet.csproj --no-build --output &quot;$(MSBuildThisFileDirectory)target&quot;"/>
 	</Target>
 	
 	<Target Name="GenerateHelpFile" DependsOnTargets="CheckReleaseVersion">
@@ -95,8 +95,8 @@
 	<Target Name="PreparePackageModern" DependsOnTargets="BuildModern;CheckNuGetPackageDirectory" Outputs="%(TargetFrameworkModern.Identity)">
 		<ItemGroup>
 			<BuildOutput Remove="@(BuildOutput)"/>
-			<BuildOutput Include="$(MSBuildThisFileDirectory)..\src\%(TargetFrameworkModern.OutputDirectory)\Renci.SshNet.dll"/>
-			<BuildOutput Include="$(MSBuildThisFileDirectory)..\src\%(TargetFrameworkModern.OutputDirectory)\Renci.SshNet.xml"/>
+			<BuildOutput Include="$(MSBuildThisFileDirectory)..\src\%(TargetFrameworkModern.OutputDirectory)\Renci.OS.SshNet.dll"/>
+			<BuildOutput Include="$(MSBuildThisFileDirectory)..\src\%(TargetFrameworkModern.OutputDirectory)\Renci.OS.SshNet.xml"/>
 		</ItemGroup>
 		<Copy SourceFiles="@(BuildOutput)" DestinationFolder="$(NuGetPackageDirectory)\lib\%(TargetFrameworkModern.Moniker)"/>
 	</Target>

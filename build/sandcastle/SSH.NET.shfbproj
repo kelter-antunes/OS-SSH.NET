@@ -32,8 +32,8 @@
     <ContentPlacement>AboveNamespaces</ContentPlacement>
 
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\..\src\Renci.SshNet\bin\Release\net462\Renci.SshNet.dll" xmlns="" />
-      <DocumentationSource sourceFile="..\..\src\Renci.SshNet\bin\Release\net462\Renci.SshNet.xml" xmlns="" />
+      <DocumentationSource sourceFile="..\..\src\Renci.OS.SshNet\bin\Release\net462\Renci.OS.SshNet.dll" xmlns="" />
+      <DocumentationSource sourceFile="..\..\src\Renci.OS.SshNet\bin\Release\net462\Renci.OS.SshNet.xml" xmlns="" />
     </DocumentationSources>
     <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, TypeParameter, AutoDocumentDispose</MissingTags>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
