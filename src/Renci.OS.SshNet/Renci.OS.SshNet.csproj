@@ -2,25 +2,27 @@
 
   <PropertyGroup>
     <AssemblyName>Renci.OS.SshNet</AssemblyName>
-    <Product>SSH.NET</Product>
+    <Product>OS-SSH.NET</Product>
     <AssemblyTitle>SSH.NET</AssemblyTitle>
     <TargetFrameworks>net462;netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>SSH.NET</PackageId>
-    <Title>SSH.NET</Title>
+    <PackageId>OS-SSH.NET</PackageId>
+    <Title>OS-SSH.NET</Title>
     <Version>2024.0.0</Version>
-    <Description>SSH.NET is a Secure Shell (SSH) library for .NET, optimized for parallelism.</Description>
+    <Description>OS-SSH.NET is a Secure Shell (SSH) library for .NET, optimized for parallelism. Forked and namespace renamed to be used with OutSystems.</Description>
     <Copyright>Copyright © Renci 2010-$([System.DateTime]::UtcNow.Year)</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Authors>Renci</Authors>
+    <Authors>Renci, Miguel 'Kelter' Antunes</Authors>
     <PackageIcon>SS-NET-icon-h500.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>ssh; scp; sftp</PackageTags>
     <PackageReleaseNotes>https://github.com/sshnet/SSH.NET/releases/tag/$(Version)</PackageReleaseNotes>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/kelter-antunes/OS-SSH.NET</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition=" $([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0')) ">
